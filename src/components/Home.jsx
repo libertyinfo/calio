@@ -1,0 +1,511 @@
+import React, { useState, useRef } from "react";
+import Navbar from "../components/Navbar";
+import leftarrow from "../assets/left-datearrow.svg";
+import rightarrow from "../assets/right-datearrow.svg";
+import dropdownarrow from "../assets/dropdown-arrow.svg";
+import inputarrow from "../assets/input-arrow.svg";
+import ReactApexChart from "react-apexcharts";
+
+function Home() {
+  const scrollRef = useRef(null);
+  const [selected, setSelected] = useState(5);
+  const [openIndex, setOpenIndex] = useState(1);
+
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  const dates = Array.from({ length: 30 }, (_, i) => {
+    return {
+      day: i + 1,
+      label: days[i % 7],
+    };
+  });
+
+  const scroll = (direction) => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({
+        left: direction === "left" ? -300 : 300,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const [state, setState] = React.useState({
+    series: [980, 1500, 870, 550],
+    options: {
+      chart: {
+        type: "donut",
+      },
+
+      colors: ["#C8A0FF", "#FF9B61", "#B6F36B", "#94DDFB"],
+
+      labels: [],
+
+      legend: {
+        show: false,
+      },
+
+      dataLabels: {
+        enabled: false,
+      },
+
+      plotOptions: {
+        pie: {
+          donut: {
+            labels: {
+              show: false,
+            },
+          },
+        },
+      },
+
+      responsive: [
+        {
+          breakpoint: 1480,
+          options: {
+            chart: {
+              height: 260,
+            },
+          },
+        },
+        {
+          breakpoint: 1280,
+          options: {
+            chart: {
+              height: 260,
+            },
+          },
+        },
+        {
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200,
+            },
+            legend: {
+              show: false,
+            },
+          },
+        },
+      ],
+    },
+  });
+
+  return (
+    <section className="bg-[#1E2230] h-screen text-white flex flex-col overflow-hidden">
+      {/* NAVBAR */}
+      <Navbar />
+
+      {/* DATE SCROLL STRIP */}
+      <div className="w-full from-[#2A2F3F] to-[#232838] text-white flex items-center px-4 py-4">
+        {/* LEFT ARROW */}
+        <button onClick={() => scroll("left")} className="mr-4">
+          <img src={leftarrow} alt="" />
+        </button>
+
+        {/* DATE SCROLL AREA */}
+        <div
+          ref={scrollRef}
+          className="flex flex-1 justify-between overflow-x-auto no-scrollbar"
+        >
+          {dates.map((item) => (
+            <div
+              key={item.day}
+              onClick={() => setSelected(item.day)}
+              className="flex flex-col items-center cursor-pointer min-w-[107px] lg:min-w-[132px] xl:min-w-[162px]"
+            >
+              <div
+                className={`flex flex-col items-center w-[60px] xl:h-[90px] lg:h-[80px] md:h-[75px] rounded-full transition-all duration-300
+                ${
+                  selected === item.day
+                    ? "bg-[#FDDF65] text-black border-2 border-white"
+                    : "text-gray-400"
+                }`}
+              >
+                <span className="xl:text-[24px] lg:text-[20px] font-semibold">
+                  {item.day}
+                </span>
+                <span className="xl:text-[18px] lg:text-[16px]">
+                  {item.label}
+                </span>
+
+                {selected === item.day && (
+                  <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button onClick={() => scroll("right")} className="ml-4">
+          <img src={rightarrow} alt="" />
+        </button>
+      </div>
+
+      {/* MAIN AREA */}
+      <div className="flex flex-1 px-6 pb-6 gap-6 overflow-hidden">
+        <div className="flex-1 overflow-y-auto scrollbar-hide xl:pr-4 pr-3">
+          <div className="border-2 border-[#343643] rounded-2xl p-6 mb-6 text-white">
+            {/* Header */}
+            <div
+              onClick={() => setOpenIndex(openIndex === 1 ? null : 1)}
+              className="flex justify-between items-center cursor-pointer"
+            >
+              <h2 className="text-[22px] font-medium">
+                Paneer sabji with roti
+              </h2>
+
+              <span
+                className={`transition-transform duration-300 ${
+                  openIndex === 1 ? "rotate-180" : ""
+                }`}
+              >
+                <img src={dropdownarrow} alt="" />
+              </span>
+            </div>
+
+            {/* Content */}
+            <div
+              className={`transition-all duration-500 overflow-hidden ${
+                openIndex === 1
+                  ? "max-h-[1000px] opacity-100 mt-6"
+                  : "max-h-0 opacity-0"
+              }`}
+            >
+              {/* ================= Paneer Sabji ================= */}
+              <div className="bg-[#323645] rounded-xl p-5 mb-6">
+                <div className="flex justify-between mb-4">
+                  <h3 className="font-medium text-[18px]">Paneer sabji</h3>
+                  <span className="text-[#FFFFFF] text-[18px]">Cal: 5700</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Carbs</span>
+                    <span>1500.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Protein</span>
+                    <span>430.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Fats</span>
+                    <span>300.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Fiber</span>
+                    <span>435.0g</span>
+                  </div>
+                </div>
+
+                <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+
+                <div className="flex justify-between mb-4 ">
+                  <h3 className="font-medium text-[18px]">Roti 3 pieces</h3>
+                  <span className="text-[#FFFFFF] text-[18px]">Cal: 2700</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Carbs</span>
+                    <span>3500.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Protein</span>
+                    <span>550.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Fats</span>
+                    <span>300.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Fiber</span>
+                    <span>435.0g</span>
+                  </div>
+                </div>
+
+                <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+
+                {/* ================= Total ================= */}
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="font-medium text-[18px]">Total</h3>
+                  <span className="text-[18px]">Cal: 8400</span>
+                </div>
+
+                <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+                  <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium text-[18px]">5000.0 g</div>
+                    <div className="font-medium text-sm mt-1">Carb</div>
+                  </div>
+
+                  <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium text-[18px]">980.0 g</div>
+                    <div className="font-medium text-sm mt-1">Protein</div>
+                  </div>
+
+                  <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium text-[18px]">550.0 g</div>
+                    <div className="font-medium text-sm mt-1">Fats</div>
+                  </div>
+
+                  <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium text-[18px]">870.0 g</div>
+                    <div className="font-medium text-sm mt-1">Fiber</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ================= Total Summary (Show Only When Closed) ================= */}
+            {openIndex !== 1 && (
+              <div className="bg-[#323645] rounded-xl p-5 mt-6">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="font-medium text-[18px]">Total</h3>
+                  <span className="text-[18px]">Cal: 8400</span>
+                </div>
+
+                <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+                  <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium">5000.0 g</div>
+                    <div className="font-medium text-sm mt-1">Carb</div>
+                  </div>
+
+                  <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium">980.0 g</div>
+                    <div className="font-medium text-sm mt-1">Protein</div>
+                  </div>
+
+                  <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium">550.0 g</div>
+                    <div className="font-medium text-sm mt-1">Fats</div>
+                  </div>
+
+                  <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium">870.0 g</div>
+                    <div className="font-medium text-sm mt-1">Fiber</div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="border-2 border-[#343643] rounded-2xl p-6 mb-6 text-white">
+            {/* Header */}
+            <div
+              onClick={() => setOpenIndex(openIndex === 2 ? null : 2)}
+              className="flex justify-between items-center cursor-pointer"
+            >
+              <h2 className="text-[22px] font-medium">
+                Paneer sabji with roti
+              </h2>
+
+              <span
+                className={`transition-transform duration-300 ${
+                  openIndex === 2 ? "rotate-180" : ""
+                }`}
+              >
+                <img src={dropdownarrow} alt="" />
+              </span>
+            </div>
+
+            {/* Content */}
+            <div
+              className={`transition-all duration-500 overflow-hidden ${
+                openIndex === 2
+                  ? "max-h-[1000px] opacity-100 mt-6"
+                  : "max-h-0 opacity-0"
+              }`}
+            >
+              {/* ================= Paneer Sabji ================= */}
+              <div className="bg-[#323645] rounded-xl p-5 mb-6">
+                <div className="flex justify-between mb-4">
+                  <h3 className="font-medium text-[18px]">Paneer sabji</h3>
+                  <span className="text-[#FFFFFF] text-[18px]">Cal: 5700</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Carbs</span>
+                    <span>1500.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Protein</span>
+                    <span>430.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Fats</span>
+                    <span>300.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Fiber</span>
+                    <span>435.0g</span>
+                  </div>
+                </div>
+
+                <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+
+                <div className="flex justify-between mb-4 ">
+                  <h3 className="font-medium text-[18px]">Roti 3 pieces</h3>
+                  <span className="text-[#FFFFFF] text-[18px]">Cal: 2700</span>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Carbs</span>
+                    <span>3500.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Protein</span>
+                    <span>550.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Fats</span>
+                    <span>300.0g</span>
+                  </div>
+
+                  <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                    <span>Fiber</span>
+                    <span>435.0g</span>
+                  </div>
+                </div>
+
+                <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+
+                {/* ================= Total ================= */}
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="font-medium text-[18px]">Total</h3>
+                  <span className="text-[18px]">Cal: 8400</span>
+                </div>
+
+                <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+                  <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium text-[18px]">5000.0 g</div>
+                    <div className="font-medium text-sm mt-1">Carb</div>
+                  </div>
+
+                  <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium text-[18px]">980.0 g</div>
+                    <div className="font-medium text-sm mt-1">Protein</div>
+                  </div>
+
+                  <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium text-[18px]">550.0 g</div>
+                    <div className="font-medium text-sm mt-1">Fats</div>
+                  </div>
+
+                  <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium text-[18px]">870.0 g</div>
+                    <div className="font-medium text-sm mt-1">Fiber</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ================= Total Summary (Show Only When Closed) ================= */}
+            {openIndex !== 2 && (
+              <div className="bg-[#323645] rounded-xl p-5 mt-6">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="font-medium text-[18px]">Total</h3>
+                  <span className="text-[18px]">Cal: 8400</span>
+                </div>
+
+                <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+                  <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium">5000.0 g</div>
+                    <div className="font-medium text-sm mt-1">Carb</div>
+                  </div>
+
+                  <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium">980.0 g</div>
+                    <div className="font-medium text-sm mt-1">Protein</div>
+                  </div>
+
+                  <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium">550.0 g</div>
+                    <div className="font-medium text-sm mt-1">Fats</div>
+                  </div>
+
+                  <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
+                    <div className="font-medium">870.0 g</div>
+                    <div className="font-medium text-sm mt-1">Fiber</div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* BOTTOM INPUT */}
+          <div className="xl:py-5 lg:py-3 md:py-2 sticky bottom-0 bg-[#1E2230]">
+            <div className="bg-[#787F9C] text-[18px] rounded-[20px] px-4 py-3 flex items-center justify-between">
+              <input
+                type="text"
+                placeholder="Log your meal..."
+                className="bg-transparent outline-none w-full text-white placeholder:text-white/70"
+              />
+
+              <img
+                src={inputarrow}
+                alt=""
+                className="ml-3 w-5 h-5 cursor-pointer"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* RIGHT SIDEBAR */}
+        <div className="lg:w-[500px] md:w-[450px] bg-[#323645] rounded-2xl flex flex-col">
+          <div className="bg-[#FDDF65] 2xl:text-[22px] text-[20px] text-black px-4 py-5 rounded-t-xl font-medium">
+            Today's Total
+          </div>
+
+          <div>
+            <div>
+              <div id="chart" className="flex justify-center mt-6">
+                <ReactApexChart
+                  options={state.options}
+                  series={state.series}
+                  type="donut"
+                  width="100%"
+                  height={300}
+                />
+              </div>
+              <h3 className="2xl:text-[34px] xl:text-[32px] lg:text-[30px] md:text-[28px] text-center font-bold 2xl:mt-4 mt-3">
+                Cal: 8400
+              </h3>
+            </div>
+            <div className="grid grid-cols-2 gap-4 w-full p-5 2xl:mt-6 mt-4">
+              <div className="bg-[#FF9B61] text-black rounded-xl 2xl:p-4 p-3 text-center">
+                <div className="font-medium 2xl:text-[22px] text-[20px]">5000.0 g</div>
+                <div className="font-medium text-[16px] mt-2">Carb</div>
+              </div>
+              <div className="bg-[#C8A0FF] text-black rounded-xl 2xl:p-4 p-3 text-center">
+                <div className="font-medium 2xl:text-[22px] text-[20px]">980.0 g</div>
+                <div className="font-medium text-[16px] mt-2">Protein</div>
+              </div>
+              <div className="bg-[#94DDFB] text-black rounded-xl 2xl:p-4 p-3 text-center">
+                <div className="font-medium 2xl:text-[22px] text-[20px]">550.0 g</div>
+                <div className="font-medium text-[16px] mt-2">Fats</div>
+              </div>
+              <div className="bg-[#B6F36B] text-black rounded-xl 2xl:p-4 p-3 text-center">
+                <div className="font-medium 2xl:text-[22px] text-[20px]">870.0 g</div>
+                <div className="font-medium text-[16px] mt-2">Fiber</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export default Home;
