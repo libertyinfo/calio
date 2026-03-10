@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.svg";
-import logout from "../assets/logout-img.svg";
+import logout from "../assets/logout-btn.svg";
 
 function Navbar() {
   return (
@@ -9,10 +9,10 @@ function Navbar() {
         <img src={logo} alt="" />
       </div>
       <Link
-        to="/login"
-        className="bg-white rounded-full flex items-center justify-center p-3"
+        to="/"
+        className="flex items-center justify-center"
       >
-        <img src={logout} alt="Logout" />
+        <img src={logout} alt="Logout" className="text-white" />
       </Link>
     </div>
   );

@@ -36,7 +36,7 @@ function Login() {
             </p>
 
               <Link
-                to="/"
+                to="/home"
                 className="bg-white text-black xl:px-[68px] xl:py-[18px] md:px-[65px] md:py-[15px] font-medium rounded-[20px] flex items-center gap-3 hover:scale-105 transition duration-300 relative z-10"
               >
                 <img

@@ -16,3 +16,22 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
+
+/* Attractive Scrollbar */
+
+.custom-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #FDDF65, #FF9B61);
+    border-radius: 10px;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #FFE98A, #FFB77A);
+}       
