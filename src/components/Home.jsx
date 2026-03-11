@@ -183,312 +183,314 @@ function Home() {
       {selected === 5 && (
         <div className="flex flex-1 px-6 pb-6 gap-6 overflow-hidden">
           <div className="flex-1 overflow-y-auto scrollbar-hide xl:pr-4 lg:pr-3">
-            <div className="border-2 border-[#343643] rounded-2xl p-6 mb-6 text-white">
-              {/* Header */}
-              <div
-                onClick={() => setOpenIndex(openIndex === 1 ? null : 1)}
-                className="flex justify-between items-center cursor-pointer"
-              >
-                <h2 className="text-[22px] font-medium">
-                  Paneer sabji with roti
-                </h2>
+            <div className="mb-[80px]">
+              <div className="border-2 border-[#343643] rounded-2xl p-6 mb-6 text-white ">
+                {/* Header */}
+                <div
+                  onClick={() => setOpenIndex(openIndex === 1 ? null : 1)}
+                  className="flex justify-between items-center cursor-pointer"
+                >
+                  <h2 className="text-[22px] font-medium">
+                    Paneer sabji with roti
+                  </h2>
 
-                <span
-                  className={`transition-transform duration-300 ${
-                    openIndex === 1 ? "rotate-180" : ""
+                  <span
+                    className={`transition-transform duration-300 ${
+                      openIndex === 1 ? "rotate-180" : ""
+                    }`}
+                  >
+                    <img src={dropdownarrow} alt="" />
+                  </span>
+                </div>
+
+                {/* Content */}
+                <div
+                  className={`transition-all duration-500 overflow-hidden ${
+                    openIndex === 1
+                      ? "max-h-[1000px] opacity-100 mt-6"
+                      : "max-h-0 opacity-0"
                   }`}
                 >
-                  <img src={dropdownarrow} alt="" />
-                </span>
-              </div>
-
-              {/* Content */}
-              <div
-                className={`transition-all duration-500 overflow-hidden ${
-                  openIndex === 1
-                    ? "max-h-[1000px] opacity-100 mt-6"
-                    : "max-h-0 opacity-0"
-                }`}
-              >
-                {/* ================= Paneer Sabji ================= */}
-                <div className="bg-[#323645] rounded-xl lg:p-5 p-3.5 mb-6">
-                  <div className="flex justify-between mb-4">
-                    <h3 className="font-medium text-[18px]">Paneer sabji</h3>
-                    <span className="text-[#FFFFFF] text-[18px]">
-                      Cal: 5700
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Carbs</span>
-                      <span>1500.0g</span>
+                  {/* ================= Paneer Sabji ================= */}
+                  <div className="bg-[#323645] rounded-xl lg:p-5 p-3.5 mb-6">
+                    <div className="flex justify-between mb-4">
+                      <h3 className="font-medium text-[18px]">Paneer sabji</h3>
+                      <span className="text-[#FFFFFF] text-[18px]">
+                        Cal: 5700
+                      </span>
                     </div>
 
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Protein</span>
-                      <span>430.0g</span>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Carbs</span>
+                        <span>1500.0g</span>
+                      </div>
+
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Protein</span>
+                        <span>430.0g</span>
+                      </div>
+
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Fats</span>
+                        <span>300.0g</span>
+                      </div>
+
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Fiber</span>
+                        <span>435.0g</span>
+                      </div>
                     </div>
 
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Fats</span>
-                      <span>300.0g</span>
+                    <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+
+                    <div className="flex justify-between mb-4 ">
+                      <h3 className="font-medium text-[18px]">Roti 3 pieces</h3>
+                      <span className="text-[#FFFFFF] text-[18px]">
+                        Cal: 2700
+                      </span>
                     </div>
 
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Fiber</span>
-                      <span>435.0g</span>
-                    </div>
-                  </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Carbs</span>
+                        <span>3500.0g</span>
+                      </div>
 
-                  <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Protein</span>
+                        <span>550.0g</span>
+                      </div>
 
-                  <div className="flex justify-between mb-4 ">
-                    <h3 className="font-medium text-[18px]">Roti 3 pieces</h3>
-                    <span className="text-[#FFFFFF] text-[18px]">
-                      Cal: 2700
-                    </span>
-                  </div>
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Fats</span>
+                        <span>300.0g</span>
+                      </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Carbs</span>
-                      <span>3500.0g</span>
-                    </div>
-
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Protein</span>
-                      <span>550.0g</span>
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Fiber</span>
+                        <span>435.0g</span>
+                      </div>
                     </div>
 
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Fats</span>
-                      <span>300.0g</span>
+                    <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+
+                    {/* ================= Total ================= */}
+                    <div className="flex justify-between items-center mb-4">
+                      <h3 className="font-medium text-[18px]">Total</h3>
+                      <span className="text-[18px]">Cal: 8400</span>
                     </div>
 
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Fiber</span>
-                      <span>435.0g</span>
-                    </div>
-                  </div>
+                    <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+                      <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium text-[18px]">5000.0 g</div>
+                        <div className="font-medium text-sm mt-1">Carb</div>
+                      </div>
 
-                  <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+                      <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium text-[18px]">980.0 g</div>
+                        <div className="font-medium text-sm mt-1">Protein</div>
+                      </div>
 
-                  {/* ================= Total ================= */}
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-medium text-[18px]">Total</h3>
-                    <span className="text-[18px]">Cal: 8400</span>
-                  </div>
+                      <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium text-[18px]">550.0 g</div>
+                        <div className="font-medium text-sm mt-1">Fats</div>
+                      </div>
 
-                  <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
-                    <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium text-[18px]">5000.0 g</div>
-                      <div className="font-medium text-sm mt-1">Carb</div>
-                    </div>
-
-                    <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium text-[18px]">980.0 g</div>
-                      <div className="font-medium text-sm mt-1">Protein</div>
-                    </div>
-
-                    <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium text-[18px]">550.0 g</div>
-                      <div className="font-medium text-sm mt-1">Fats</div>
-                    </div>
-
-                    <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium text-[18px]">870.0 g</div>
-                      <div className="font-medium text-sm mt-1">Fiber</div>
+                      <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium text-[18px]">870.0 g</div>
+                        <div className="font-medium text-sm mt-1">Fiber</div>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                {/* ================= Total Summary (Show Only When Closed) ================= */}
+                {openIndex !== 1 && (
+                  <div className="bg-[#323645] rounded-xl p-5 mt-6">
+                    <div className="flex justify-between items-center mb-4">
+                      <h3 className="font-medium text-[18px]">Total</h3>
+                      <span className="text-[18px]">Cal: 8400</span>
+                    </div>
+
+                    <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+                      <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium">5000.0 g</div>
+                        <div className="font-medium text-sm mt-1">Carb</div>
+                      </div>
+
+                      <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium">980.0 g</div>
+                        <div className="font-medium text-sm mt-1">Protein</div>
+                      </div>
+
+                      <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium">550.0 g</div>
+                        <div className="font-medium text-sm mt-1">Fats</div>
+                      </div>
+
+                      <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium">870.0 g</div>
+                        <div className="font-medium text-sm mt-1">Fiber</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
 
-              {/* ================= Total Summary (Show Only When Closed) ================= */}
-              {openIndex !== 1 && (
-                <div className="bg-[#323645] rounded-xl p-5 mt-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-medium text-[18px]">Total</h3>
-                    <span className="text-[18px]">Cal: 8400</span>
-                  </div>
+              <div className="border-2 border-[#343643] rounded-2xl p-6 mb-6 text-white">
+                {/* Header */}
+                <div
+                  onClick={() => setOpenIndex(openIndex === 2 ? null : 2)}
+                  className="flex justify-between items-center cursor-pointer"
+                >
+                  <h2 className="text-[22px] font-medium">
+                    Paneer sabji with roti
+                  </h2>
 
-                  <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
-                    <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium">5000.0 g</div>
-                      <div className="font-medium text-sm mt-1">Carb</div>
-                    </div>
-
-                    <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium">980.0 g</div>
-                      <div className="font-medium text-sm mt-1">Protein</div>
-                    </div>
-
-                    <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium">550.0 g</div>
-                      <div className="font-medium text-sm mt-1">Fats</div>
-                    </div>
-
-                    <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium">870.0 g</div>
-                      <div className="font-medium text-sm mt-1">Fiber</div>
-                    </div>
-                  </div>
+                  <span
+                    className={`transition-transform duration-300 ${
+                      openIndex === 2 ? "rotate-180" : ""
+                    }`}
+                  >
+                    <img src={dropdownarrow} alt="" />
+                  </span>
                 </div>
-              )}
-            </div>
 
-            <div className="border-2 border-[#343643] rounded-2xl p-6 mb-6 text-white">
-              {/* Header */}
-              <div
-                onClick={() => setOpenIndex(openIndex === 2 ? null : 2)}
-                className="flex justify-between items-center cursor-pointer"
-              >
-                <h2 className="text-[22px] font-medium">
-                  Paneer sabji with roti
-                </h2>
-
-                <span
-                  className={`transition-transform duration-300 ${
-                    openIndex === 2 ? "rotate-180" : ""
+                {/* Content */}
+                <div
+                  className={`transition-all duration-500 overflow-hidden ${
+                    openIndex === 2
+                      ? "max-h-[1000px] opacity-100 mt-6"
+                      : "max-h-0 opacity-0"
                   }`}
                 >
-                  <img src={dropdownarrow} alt="" />
-                </span>
-              </div>
-
-              {/* Content */}
-              <div
-                className={`transition-all duration-500 overflow-hidden ${
-                  openIndex === 2
-                    ? "max-h-[1000px] opacity-100 mt-6"
-                    : "max-h-0 opacity-0"
-                }`}
-              >
-                {/* ================= Paneer Sabji ================= */}
-                <div className="bg-[#323645] rounded-xl lg:p-5 p-3.5 mb-6">
-                  <div className="flex justify-between mb-4">
-                    <h3 className="font-medium text-[18px]">Paneer sabji</h3>
-                    <span className="text-[#FFFFFF] text-[18px]">
-                      Cal: 5700
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Carbs</span>
-                      <span>1500.0g</span>
+                  {/* ================= Paneer Sabji ================= */}
+                  <div className="bg-[#323645] rounded-xl lg:p-5 p-3.5 mb-6">
+                    <div className="flex justify-between mb-4">
+                      <h3 className="font-medium text-[18px]">Paneer sabji</h3>
+                      <span className="text-[#FFFFFF] text-[18px]">
+                        Cal: 5700
+                      </span>
                     </div>
 
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Protein</span>
-                      <span>430.0g</span>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Carbs</span>
+                        <span>1500.0g</span>
+                      </div>
+
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Protein</span>
+                        <span>430.0g</span>
+                      </div>
+
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Fats</span>
+                        <span>300.0g</span>
+                      </div>
+
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Fiber</span>
+                        <span>435.0g</span>
+                      </div>
                     </div>
 
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Fats</span>
-                      <span>300.0g</span>
+                    <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+
+                    <div className="flex justify-between mb-4 ">
+                      <h3 className="font-medium text-[18px]">Roti 3 pieces</h3>
+                      <span className="text-[#FFFFFF] text-[18px]">
+                        Cal: 2700
+                      </span>
                     </div>
 
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Fiber</span>
-                      <span>435.0g</span>
-                    </div>
-                  </div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Carbs</span>
+                        <span>3500.0g</span>
+                      </div>
 
-                  <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Protein</span>
+                        <span>550.0g</span>
+                      </div>
 
-                  <div className="flex justify-between mb-4 ">
-                    <h3 className="font-medium text-[18px]">Roti 3 pieces</h3>
-                    <span className="text-[#FFFFFF] text-[18px]">
-                      Cal: 2700
-                    </span>
-                  </div>
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Fats</span>
+                        <span>300.0g</span>
+                      </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Carbs</span>
-                      <span>3500.0g</span>
-                    </div>
-
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Protein</span>
-                      <span>550.0g</span>
+                      <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
+                        <span>Fiber</span>
+                        <span>435.0g</span>
+                      </div>
                     </div>
 
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Fats</span>
-                      <span>300.0g</span>
+                    <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+
+                    {/* ================= Total ================= */}
+                    <div className="flex justify-between items-center mb-4">
+                      <h3 className="font-medium text-[18px]">Total</h3>
+                      <span className="text-[18px]">Cal: 8400</span>
                     </div>
 
-                    <div className="border border-dashed border-[#FFFFFF1A] rounded-lg p-3 flex justify-between">
-                      <span>Fiber</span>
-                      <span>435.0g</span>
-                    </div>
-                  </div>
+                    <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+                      <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium text-[18px]">5000.0 g</div>
+                        <div className="font-medium text-sm mt-1">Carb</div>
+                      </div>
 
-                  <div className="border-t-2 border-[#FFFFFF33] my-5"></div>
+                      <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium text-[18px]">980.0 g</div>
+                        <div className="font-medium text-sm mt-1">Protein</div>
+                      </div>
 
-                  {/* ================= Total ================= */}
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-medium text-[18px]">Total</h3>
-                    <span className="text-[18px]">Cal: 8400</span>
-                  </div>
+                      <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium text-[18px]">550.0 g</div>
+                        <div className="font-medium text-sm mt-1">Fats</div>
+                      </div>
 
-                  <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
-                    <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium text-[18px]">5000.0 g</div>
-                      <div className="font-medium text-sm mt-1">Carb</div>
-                    </div>
-
-                    <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium text-[18px]">980.0 g</div>
-                      <div className="font-medium text-sm mt-1">Protein</div>
-                    </div>
-
-                    <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium text-[18px]">550.0 g</div>
-                      <div className="font-medium text-sm mt-1">Fats</div>
-                    </div>
-
-                    <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium text-[18px]">870.0 g</div>
-                      <div className="font-medium text-sm mt-1">Fiber</div>
+                      <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium text-[18px]">870.0 g</div>
+                        <div className="font-medium text-sm mt-1">Fiber</div>
+                      </div>
                     </div>
                   </div>
                 </div>
+
+                {/* ================= Total Summary (Show Only When Closed) ================= */}
+                {openIndex !== 2 && (
+                  <div className="bg-[#323645] rounded-xl p-5 mt-6">
+                    <div className="flex justify-between items-center mb-4">
+                      <h3 className="font-medium text-[18px]">Total</h3>
+                      <span className="text-[18px]">Cal: 8400</span>
+                    </div>
+
+                    <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+                      <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium">5000.0 g</div>
+                        <div className="font-medium text-sm mt-1">Carb</div>
+                      </div>
+
+                      <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium">980.0 g</div>
+                        <div className="font-medium text-sm mt-1">Protein</div>
+                      </div>
+
+                      <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium">550.0 g</div>
+                        <div className="font-medium text-sm mt-1">Fats</div>
+                      </div>
+
+                      <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
+                        <div className="font-medium">870.0 g</div>
+                        <div className="font-medium text-sm mt-1">Fiber</div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
-
-              {/* ================= Total Summary (Show Only When Closed) ================= */}
-              {openIndex !== 2 && (
-                <div className="bg-[#323645] rounded-xl p-5 mt-6">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-medium text-[18px]">Total</h3>
-                    <span className="text-[18px]">Cal: 8400</span>
-                  </div>
-
-                  <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
-                    <div className="bg-[#FF9B61] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium">5000.0 g</div>
-                      <div className="font-medium text-sm mt-1">Carb</div>
-                    </div>
-
-                    <div className="bg-[#C8A0FF] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium">980.0 g</div>
-                      <div className="font-medium text-sm mt-1">Protein</div>
-                    </div>
-
-                    <div className="bg-[#94DDFB] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium">550.0 g</div>
-                      <div className="font-medium text-sm mt-1">Fats</div>
-                    </div>
-
-                    <div className="bg-[#B6F36B] text-[#222531] rounded-xl p-2 text-center">
-                      <div className="font-medium">870.0 g</div>
-                      <div className="font-medium text-sm mt-1">Fiber</div>
-                    </div>
-                  </div>
-                </div>
-              )}
             </div>
 
             {/* BOTTOM INPUT */}
@@ -516,49 +518,53 @@ function Home() {
             </div>
 
             {/* Scrollable Content */}
-            <div className="overflow-y-auto max-h-[80vh] scroll-smooth custom-scroll grid content-center h-full">
-              <div id="chart" className="flex justify-center mt-6">
-                <ReactApexChart
-                  options={state.options}
-                  series={state.series}
-                  type="donut"
-                  width="100%"
-                  height={300}
-                />
-              </div>
+            <div className="overflow-y-auto scroll-smooth custom-scroll  content-center  ">
+              <div className="w-full">
+                <div id="chart" className="flex justify-center mt-6">
+                  <ReactApexChart
+                    options={state.options}
+                    series={state.series}
+                    type="donut"
+                    width="100%"
+                    height={300}
+                  />
+                </div>
 
-              <div>
-                <h3 className="2xl:text-[34px] xl:text-[32px] lg:text-[30px] md:text-[28px] text-center font-bold 2xl:mt-4 mt-3">
-                  Cal: 8400
-                </h3>
+                <div>
+                  <h3 className="2xl:text-[34px] xl:text-[32px] lg:text-[30px] md:text-[28px] text-center font-bold 2xl:mt-4 mt-3">
+                    Cal: 8400
+                  </h3>
 
-                <div className="grid grid-cols-2 gap-4 w-full p-5 2xl:mt-6 mt-4">
-                  <div className="bg-[#FF9B61] text-black rounded-xl 2xl:p-4 p-3 text-center">
-                    <div className="font-medium 2xl:text-[22px] text-[20px]">
-                      5000.0 g
+                  <div className="grid grid-cols-2 gap-4 w-full p-5 2xl:mt-6 mt-4">
+                    <div className="bg-[#FF9B61] text-black rounded-xl 2xl:p-4 p-3 text-center">
+                      <div className="font-medium 2xl:text-[22px] text-[20px]">
+                        5000.0 g
+                      </div>
+                      <div className="font-medium text-[16px] mt-2">Carb</div>
                     </div>
-                    <div className="font-medium text-[16px] mt-2">Carb</div>
-                  </div>
 
-                  <div className="bg-[#C8A0FF] text-black rounded-xl 2xl:p-4 p-3 text-center">
-                    <div className="font-medium 2xl:text-[22px] text-[20px]">
-                      980.0 g
+                    <div className="bg-[#C8A0FF] text-black rounded-xl 2xl:p-4 p-3 text-center">
+                      <div className="font-medium 2xl:text-[22px] text-[20px]">
+                        980.0 g
+                      </div>
+                      <div className="font-medium text-[16px] mt-2">
+                        Protein
+                      </div>
                     </div>
-                    <div className="font-medium text-[16px] mt-2">Protein</div>
-                  </div>
 
-                  <div className="bg-[#94DDFB] text-black rounded-xl 2xl:p-4 p-3 text-center">
-                    <div className="font-medium 2xl:text-[22px] text-[20px]">
-                      550.0 g
+                    <div className="bg-[#94DDFB] text-black rounded-xl 2xl:p-4 p-3 text-center">
+                      <div className="font-medium 2xl:text-[22px] text-[20px]">
+                        550.0 g
+                      </div>
+                      <div className="font-medium text-[16px] mt-2">Fats</div>
                     </div>
-                    <div className="font-medium text-[16px] mt-2">Fats</div>
-                  </div>
 
-                  <div className="bg-[#B6F36B] text-black rounded-xl 2xl:p-4 p-3 text-center">
-                    <div className="font-medium 2xl:text-[22px] text-[20px]">
-                      870.0 g
+                    <div className="bg-[#B6F36B] text-black rounded-xl 2xl:p-4 p-3 text-center">
+                      <div className="font-medium 2xl:text-[22px] text-[20px]">
+                        870.0 g
+                      </div>
+                      <div className="font-medium text-[16px] mt-2">Fiber</div>
                     </div>
-                    <div className="font-medium text-[16px] mt-2">Fiber</div>
                   </div>
                 </div>
               </div>
