@@ -12,6 +12,15 @@ function Home() {
   const scrollRef = useRef(null);
   const el = useRef(null);
   const [showError, setShowError] = React.useState(false);
+  const datesWithData = [4, 5, 9, 12];
+
+  const handleError = () => {
+    setShowError(true);
+
+    setTimeout(() => {
+      setShowError(false);
+    }, 3000);
+  };
 
   // load saved page from localStorage
   const [selected, setSelected] = useState(() => {
@@ -176,7 +185,11 @@ function Home() {
 
                   <div
                     className={`w-1.5 h-1.5 rounded-full ${
-                      selected === item.day ? "bg-black" : "bg-transparent"
+                      selected === item.day
+                        ? "bg-black"
+                        : datesWithData.includes(item.day)
+                          ? "bg-white"
+                          : "bg-transparent"
                     }`}
                   ></div>
                 </div>
@@ -192,7 +205,7 @@ function Home() {
       </div>
 
       {/* MAIN AREA */}
-      {selected === 5 && (
+      {datesWithData.includes(selected) && (
         <div className="flex flex-1 px-6 pb-6 gap-6 overflow-hidden">
           <div className="flex-1 overflow-y-auto scrollbar-hide xl:pr-4 lg:pr-3">
             <div className="mb-[80px]">
@@ -517,7 +530,7 @@ function Home() {
                   src={inputarrow}
                   alt=""
                   className="ml-3 w-5 h-5 cursor-pointer"
-                  onClick={() => setShowError(true)}
+                  onClick={handleError}
                 />
               </div>
               {/* error message */}
@@ -596,7 +609,7 @@ function Home() {
       )}
 
       {/* No Enteries */}
-      {selected === 3 && (
+      {!datesWithData.includes(selected) && (
         <>
           <div className="flex flex-col items-center justify-center h-[60vh] text-center">
             <img src={noenteries} alt="" className="mb-5" />
