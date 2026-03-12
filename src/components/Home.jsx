@@ -53,6 +53,13 @@ function Home() {
         type: "donut",
       },
 
+      tooltip: {
+        theme: "light",
+        style: {
+          color: "#000",
+        },
+      },
+
       colors: ["#C8A0FF", "#FF9B61", "#B6F36B", "#94DDFB"],
 
       labels: [],
@@ -132,51 +139,55 @@ function Home() {
       <Navbar />
 
       {/* DATE SCROLL STRIP */}
-      <div className="w-full from-[#2A2F3F] to-[#232838] text-white flex items-center px-4 py-4">
-        {/* LEFT ARROW */}
-        <button onClick={() => scroll("left")} className="mr-4">
-          <img src={leftarrow} alt="" />
-        </button>
+      <div className="mx-6 my-5">
+        <div className="w-full bg-[#2d3142] text-white flex items-center px-2 py-2 rounded-2xl">
+          {/* LEFT ARROW */}
+          <button onClick={() => scroll("left")} className="mr-4">
+            <img src={leftarrow} alt="" />
+          </button>
 
-        {/* DATE SCROLL AREA */}
-        <div
-          ref={scrollRef}
-          className="flex flex-1 justify-between overflow-x-auto no-scrollbar"
-        >
-          {dates.map((item) => (
-            <div
-              key={item.day}
-              onClick={() => setSelected(item.day)}
-              className="flex flex-col items-center cursor-pointer min-w-[107px] lg:min-w-[132px] xl:min-w-[162px]"
-            >
+          {/* DATE SCROLL AREA */}
+          <div
+            ref={scrollRef}
+            className="flex flex-1 justify-between overflow-x-auto no-scrollbar"
+          >
+            {dates.map((item) => (
               <div
-                className={`flex flex-col items-center w-[60px] xl:h-[90px] lg:h-[80px] md:h-[75px] rounded-full transition-all duration-300
-          ${
-            selected === item.day
-              ? "bg-[#FDDF65] text-black border-2 border-white"
-              : "text-gray-400"
-          }`}
+                key={item.day}
+                onClick={() => setSelected(item.day)}
+                className="flex flex-col items-center cursor-pointer min-w-[107px] lg:min-w-[132px] xl:min-w-[162px]"
               >
-                <span className="xl:text-[24px] lg:text-[20px] font-semibold">
-                  {item.day}
-                </span>
+                <div
+                  className={`flex flex-col items-center justify-center w-[60px] xl:h-[80px] lg:h-[80px] md:h-[75px] rounded-full transition-all duration-300
+        ${
+          selected === item.day
+            ? "bg-[#FDDF65] text-black border-2 border-white"
+            : "text-gray-400"
+        }`}
+                >
+                  <span className="xl:text-[24px] lg:text-[20px] font-semibold">
+                    {item.day}
+                  </span>
 
-                <span className="xl:text-[18px] lg:text-[16px]">
-                  {item.label}
-                </span>
+                  <span className="xl:text-[18px] lg:text-[16px]">
+                    {item.label}
+                  </span>
 
-                {selected === item.day && (
-                  <div className="w-1.5 h-1.5 bg-black rounded-full"></div>
-                )}
+                  <div
+                    className={`w-1.5 h-1.5 rounded-full ${
+                      selected === item.day ? "bg-black" : "bg-transparent"
+                    }`}
+                  ></div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        {/* RIGHT ARROW */}
-        <button onClick={() => scroll("right")} className="ml-4">
-          <img src={rightarrow} alt="" />
-        </button>
+          {/* RIGHT ARROW */}
+          <button onClick={() => scroll("right")} className="ml-4">
+            <img src={rightarrow} alt="" />
+          </button>
+        </div>
       </div>
 
       {/* MAIN AREA */}
@@ -535,7 +546,7 @@ function Home() {
                     Cal: 8400
                   </h3>
 
-                  <div className="grid grid-cols-2 gap-4 w-full p-5 2xl:mt-6 mt-4">
+                  <div className="grid lg:grid-cols-2 md:grid-cols-1 gap-4 w-full p-5 2xl:mt-6 mt-4">
                     <div className="bg-[#FF9B61] text-black rounded-xl 2xl:p-4 p-3 text-center">
                       <div className="font-medium 2xl:text-[22px] text-[20px]">
                         5000.0 g

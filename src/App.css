@@ -35,3 +35,7 @@
 .custom-scroll::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(180deg, #FFE98A, #FFB77A);
 }
+
+.apexcharts-tooltip{
+    color: black !important;
+}
