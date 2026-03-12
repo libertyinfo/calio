@@ -12,7 +12,7 @@ function Navbar() {
         to="/"
         className="flex items-center justify-center"
       >
-        <img src={logout} alt="Logout" className="text-white" />
+        <p className="text-[#C5C9D7] text-[18px]">Logout</p>
       </Link>
     </div>
   );

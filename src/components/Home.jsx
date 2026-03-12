@@ -518,6 +518,14 @@ function Home() {
                   className="ml-3 w-5 h-5 cursor-pointer"
                 />
               </div>
+              <div className="absolute left-1/2 -translate-x-1/2">
+                <div className="bg-red-500 text-white text-sm px-4 py-1 rounded-full flex items-center gap-2 shadow">
+                  {/* icon */}
+                  <span className="text-white text-xs">⚠</span>
+
+                  <span>Something went wrong. Please try again</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -623,6 +631,8 @@ function Home() {
           </div>
         </>
       )}
+
+      {/* Error */}
     </section>
   );
 }

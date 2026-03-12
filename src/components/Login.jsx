@@ -7,11 +7,11 @@ function Login() {
   return (
     <section className="bg-[#1E2230] h-screen w-screen overflow-hidden">
       <div className="flex h-full w-full">
-        <div className="w-1/2 h-full">
+        <div className="w-1/2 h-full p-[50px]">
           <img
             src={loginimg}
             alt="Login Visual"
-            className="w-full h-full rounded-r-[40px] object-cover"
+            className="w-full h-full rounded-[40px] object-cover"
           />
         </div>
 
