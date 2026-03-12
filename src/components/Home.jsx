@@ -11,6 +11,7 @@ import Typed from "typed.js";
 function Home() {
   const scrollRef = useRef(null);
   const el = useRef(null);
+  const [showError, setShowError] = React.useState(false);
 
   // load saved page from localStorage
   const [selected, setSelected] = useState(() => {
@@ -516,16 +517,18 @@ function Home() {
                   src={inputarrow}
                   alt=""
                   className="ml-3 w-5 h-5 cursor-pointer"
+                  onClick={() => setShowError(true)}
                 />
               </div>
-              <div className="absolute left-1/2 -translate-x-1/2">
-                <div className="bg-red-500 text-white text-sm px-4 py-1 rounded-full flex items-center gap-2 shadow">
-                  {/* icon */}
-                  <span className="text-white text-xs">⚠</span>
-
-                  <span>Something went wrong. Please try again</span>
+              {/* error message */}
+              {showError && (
+                <div className="absolute left-1/2 -translate-x-1/2 -top-4">
+                  <div className="bg-red-500 text-white text-sm px-5 py-1.5 rounded-full flex items-center gap-2 shadow-lg">
+                    <span className="text-xs">⚠</span>
+                    <span>Something went wrong. Please try again</span>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 
