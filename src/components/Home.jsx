@@ -145,7 +145,6 @@ function Home() {
 
   return (
     <section className="bg-[#1E2230] h-screen text-white flex flex-col overflow-hidden">
-      {/* NAVBAR */}
       <Navbar />
 
       {/* DATE SCROLL STRIP */}
@@ -648,7 +647,6 @@ function Home() {
         </>
       )}
 
-      {/* Error */}
     </section>
   );
 }
